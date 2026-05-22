@@ -1,7 +1,7 @@
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { motion } from "motion/react";
-import imgInHerEyes from "figma:asset/5766eaf56b79667880a8586bfe6ff7a8f739f885.png";
-import imgMisfortune from "../../../MAIN POSTER MisFortune.png";
+import imgInHerEyes from "../../assets/in-her-eyes-poster-optimized.jpg";
+import imgMisfortune from "../../assets/misfortune-poster-optimized.jpg";
 import imgKubli from "figma:asset/5668d9559d8d6d80a01b3f591bca3dc754826657.png";
 import imgLuminara from "figma:asset/c589f4921221a6b99e242c5cace2710d002953cd.png";
 import imgShutterBox from "figma:asset/f434c0ecc56937158ac2e788621b43b7b3397cdf.png";
@@ -45,8 +45,10 @@ const films = [
 
 export function FilmSection({ onWatchTrailer }: { onWatchTrailer: (id: string) => void }) {
   return (
-    <section id="films" className="py-24 bg-black text-white px-6 md:px-12 lg:px-24">
-      <div className="container mx-auto">
+    <section id="films" className="relative overflow-hidden py-24 bg-black text-white px-6 md:px-12 lg:px-24">
+      <div className="absolute right-[-12%] top-24 h-96 w-96 rounded-full bg-red-800/12 blur-3xl"></div>
+      <div className="absolute left-[-12%] bottom-40 h-80 w-80 rounded-full bg-[#d9ae00]/8 blur-3xl"></div>
+      <div className="container relative z-10 mx-auto">
         <motion.h2 
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -71,7 +73,7 @@ export function FilmSection({ onWatchTrailer }: { onWatchTrailer: (id: string) =
                 <div className="relative group overflow-hidden rounded-lg shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/10">
                   <ImageWithFallback 
                     src={film.poster} 
-                    alt={film.title}
+                    alt={`${film.title} official poster`}
                     className="w-full h-auto aspect-[2/3] object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-60"></div>
@@ -91,7 +93,7 @@ export function FilmSection({ onWatchTrailer }: { onWatchTrailer: (id: string) =
                   </div>
                   {film.logo && (
                     <div className="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-                      <ImageWithFallback src={film.logo} alt="Studio Logo" className="w-full h-full object-contain" />
+                      <ImageWithFallback src={film.logo} alt={`${film.title} production studio logo`} className="w-full h-full object-contain" />
                     </div>
                   )}
                 </div>

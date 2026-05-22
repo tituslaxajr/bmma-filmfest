@@ -1,5 +1,6 @@
 import { Hero } from "./components/Hero";
 import { FilmSection } from "./components/FilmSection";
+import { EventDetails } from "./components/EventDetails";
 import { TrailerSection } from "./components/TrailerSection";
 import { TrailerPopup } from "./components/TrailerPopup";
 import { ProductionGroups } from "./components/ProductionGroups";
@@ -9,7 +10,7 @@ import { ImageWithFallback } from "./components/figma/ImageWithFallback";
 import { Toaster } from "sonner";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import imgOverlay from "figma:asset/ab89b3d7cf25656d8f2829d8ff55c577d1cdec2c.png";
+import imgOverlay from "../assets/texture-overlay-optimized.jpg";
 
 export default function Home() {
   const [activeTrailerId, setActiveTrailerId] = useState<string | null>(null);
@@ -25,6 +26,10 @@ export default function Home() {
     {
       label: "Home",
       action: () => window.scrollTo({ top: 0, behavior: "smooth" }),
+    },
+    {
+      label: "Event",
+      action: () => document.getElementById("event")?.scrollIntoView({ behavior: "smooth" }),
     },
     {
       label: "Films",
@@ -56,6 +61,11 @@ export default function Home() {
         trailerId={activeTrailerId} 
         onClose={() => setActiveTrailerId(null)} 
       />
+      <div className="fixed inset-0 z-20 pointer-events-none overflow-hidden">
+        <div className="absolute -left-24 top-12 h-72 w-72 rounded-full bg-red-600/18 blur-3xl md:h-[28rem] md:w-[28rem]"></div>
+        <div className="absolute right-[-10%] top-[18%] h-64 w-64 rounded-full bg-red-500/12 blur-3xl md:h-[26rem] md:w-[26rem]"></div>
+        <div className="absolute left-[8%] bottom-[18%] h-56 w-80 rotate-[-18deg] rounded-full bg-[linear-gradient(90deg,rgba(220,38,38,0.14),rgba(239,68,68,0.05),transparent)] blur-2xl"></div>
+      </div>
       {/* Texture Overlay */}
       <div className="fixed inset-0 z-50 pointer-events-none opacity-20 mix-blend-overlay">
         <ImageWithFallback src={imgOverlay} alt="" className="w-full h-full object-cover" />
@@ -115,6 +125,7 @@ export default function Home() {
       </header>
 
       <Hero />
+      <EventDetails />
       <FilmSection onWatchTrailer={(id) => setActiveTrailerId(id)} />
       <TrailerSection onSelectTrailer={(id) => setActiveTrailerId(id)} />
       <ProductionGroups />

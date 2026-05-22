@@ -32,8 +32,10 @@ const groups = [
 
 export function ProductionGroups() {
   return (
-    <section id="productions" className="py-24 bg-zinc-950 text-white px-6 md:px-12 lg:px-24">
-      <div className="container mx-auto">
+    <section id="productions" className="relative overflow-hidden py-24 bg-zinc-950 text-white px-6 md:px-12 lg:px-24">
+      <div className="absolute -right-20 top-20 h-72 w-72 rounded-full bg-red-700/12 blur-3xl"></div>
+      <div className="absolute left-1/3 bottom-0 h-56 w-96 bg-[linear-gradient(90deg,transparent,rgba(217,174,0,0.08),rgba(220,38,38,0.1),transparent)] blur-3xl"></div>
+      <div className="container relative z-10 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -62,7 +64,7 @@ export function ProductionGroups() {
               <div className="aspect-square relative overflow-hidden bg-zinc-900/50 p-6">
                 <ImageWithFallback
                   src={group.image}
-                  alt={group.name}
+                  alt={`${group.name} featured logo`}
                   className="h-full w-full object-contain grayscale transition-all duration-700 group-hover:scale-[1.02] group-hover:grayscale-0"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

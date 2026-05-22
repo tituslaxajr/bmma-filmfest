@@ -6,8 +6,8 @@ import {
   DialogDescription,
 } from "./ui/dialog";
 import { ExternalLink } from "lucide-react";
-import imgKubliStill from "C:/Users/huawei notebook/Documents/kubli still trailer.jpg";
-import imgInHerEyesStill from "C:/Users/huawei notebook/Documents/trailer stills in her eyes.jpg";
+import imgKubliStill from "../../assets/kubli still trailer.jpg";
+import imgInHerEyesStill from "../../assets/trailer stills in her eyes.jpg";
 
 export const trailers = [
   {

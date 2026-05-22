@@ -15,7 +15,7 @@ const films = [
     description: "A melancholy young lady reminisces about her past as she paints someone she holds dear to her heart, who became the light at the end of the tunnel she calls her life.",
     genre: "Psychological, Romance",
     time: "11:00AM - 5:30PM",
-    venue: "DRAWING ROOM, 3RD FLOOR",
+    venue: "STUDIO, 3RD FLOOR",
     poster: imgInHerEyes,
     logo: imgLuminara,
   },

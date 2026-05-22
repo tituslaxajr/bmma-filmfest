@@ -1,5 +1,5 @@
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import imgMainBackground from "C:/Users/huawei notebook/Desktop/8k hero cover.png";
+import imgMainBackground from "../../assets/8k hero cover.png";
 import { motion } from "motion/react";
 
 export function Hero() {

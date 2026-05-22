@@ -35,7 +35,7 @@ export function Hero() {
           className="relative mb-9 md:mb-10"
         >
           <div className="absolute left-1/2 top-1/2 h-28 w-[115%] -translate-x-1/2 -translate-y-1/2 bg-[linear-gradient(90deg,transparent,rgba(220,38,38,0.22),rgba(217,174,0,0.08),transparent)] blur-2xl"></div>
-          <h1 className="relative flex flex-col items-center font-['Inter'] text-[4rem] leading-[0.92] font-black uppercase tracking-[-0.045em] md:text-[6.9rem] lg:text-[9.1rem] xl:text-[10.4rem]">
+          <h1 className="relative flex flex-col items-center font-['Inter'] text-[4rem] leading-[0.88] font-bold uppercase tracking-[-0.045em] md:text-[6.9rem] lg:text-[9.1rem] xl:text-[10.4rem]">
               <span className="relative inline-block mb-2 text-[#d9ae00] md:mb-4">
                 <span className="absolute inset-0 translate-x-[0.04em] translate-y-[0.04em] blur-[7px] text-[#d9ae00]/70">
                   BMMA

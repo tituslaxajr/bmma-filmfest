@@ -101,10 +101,6 @@ export function ProductionGroups() {
                 <h3 className="type-card-title text-white">
                   {group.name}
                 </h3>
-                <p className="type-body text-gray-400">
-                  {group.description}
-                </p>
-
                 <div className="h-px bg-white/8" />
 
                 <ul className="space-y-2">

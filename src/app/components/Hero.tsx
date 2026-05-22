@@ -109,17 +109,29 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-col items-center justify-center gap-6 md:gap-12"
         >
-          <div className="flex flex-col items-center justify-center gap-6 md:flex-row md:gap-12">
-            <div className="text-center md:text-right">
-              <p className="font-display mb-1 text-3xl font-bold uppercase tracking-[-0.02em] md:text-5xl">26 May 2026</p>
-              <p className="font-display text-2xl font-bold uppercase tracking-[-0.02em] text-[#d9ae00] md:text-4xl">
+          <div className="flex flex-col items-center justify-center gap-8 md:flex-row md:gap-0">
+            {/* Date & Venue */}
+            <div className="flex flex-col items-center gap-3 md:items-end md:pr-12 md:flex-1">
+              <p className="type-meta text-[10px] tracking-[0.35em] text-white/40 uppercase">When & Where</p>
+              <p className="font-display text-3xl font-bold uppercase tracking-[-0.02em] text-white md:text-4xl md:text-right">26 May 2026</p>
+              <p className="font-display text-xl font-bold uppercase tracking-[-0.02em] text-[#d9ae00] md:text-2xl md:text-right">
                 STI College San Fernando
               </p>
             </div>
-            <div className="hidden md:block h-24 w-px bg-[#d9ae00]"></div>
-          <p className="type-body-lg max-w-md text-gray-300 md:text-left">
-            Featuring three original short films showcasing creativity, storytelling, and passion for filmmaking.
-          </p>
+
+            {/* Divider */}
+            <div className="hidden md:flex flex-col items-center self-stretch">
+              <div className="w-px flex-1 bg-gradient-to-b from-transparent via-[#d9ae00] to-transparent" />
+            </div>
+            <div className="block md:hidden w-16 h-px bg-gradient-to-r from-transparent via-[#d9ae00] to-transparent" />
+
+            {/* Description */}
+            <div className="flex flex-col items-center gap-3 md:items-start md:pl-12 md:flex-1">
+              <p className="type-meta text-[10px] tracking-[0.35em] text-white/40 uppercase">The Films</p>
+              <p className="type-body-lg max-w-xs text-gray-300 text-center md:text-left">
+                Featuring three original short films showcasing creativity, storytelling, and passion for filmmaking.
+              </p>
+            </div>
           </div>
         </motion.div>
 

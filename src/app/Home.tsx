@@ -4,8 +4,7 @@ import { EventDetails } from "./components/EventDetails";
 import { TrailerSection } from "./components/TrailerSection";
 import { TrailerPopup } from "./components/TrailerPopup";
 import { ProductionGroups } from "./components/ProductionGroups";
-import { TeamSection, Footer } from "./components/TeamSection";
-import { FilmGrain } from "./components/FilmGrain";
+import { Footer } from "./components/TeamSection";
 import { CinematicIntro } from "./components/CinematicIntro";
 import { motion, useScroll, useSpring } from "motion/react";
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
@@ -13,6 +12,7 @@ import { Toaster } from "sonner";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import imgOverlay from "../assets/texture-overlay-optimized.jpg";
+
 
 export default function Home() {
   const [activeTrailerId, setActiveTrailerId] = useState<string | null>(null);
@@ -60,7 +60,6 @@ export default function Home() {
   return (
     <main className="bg-black min-h-screen selection:bg-[#d9ae00] selection:text-black overflow-x-hidden relative">
       <CinematicIntro onComplete={() => setIntroComplete(true)} />
-      <FilmGrain />
       <Toaster position="bottom-right" />
       <TrailerPopup
         trailerId={activeTrailerId}
@@ -71,8 +70,8 @@ export default function Home() {
         <div className="absolute right-[-10%] top-[18%] h-64 w-64 rounded-full bg-red-500/12 blur-3xl md:h-[26rem] md:w-[26rem]"></div>
         <div className="absolute left-[8%] bottom-[18%] h-56 w-80 rotate-[-18deg] rounded-full bg-[linear-gradient(90deg,rgba(220,38,38,0.14),rgba(239,68,68,0.05),transparent)] blur-2xl"></div>
       </div>
-      {/* Texture Overlay — reduced opacity since FilmGrain adds animated grain */}
-      <div className="fixed inset-0 z-50 pointer-events-none opacity-10 mix-blend-overlay">
+      {/* Texture Overlay */}
+      <div className="fixed inset-0 z-50 pointer-events-none opacity-20 mix-blend-overlay">
         <ImageWithFallback src={imgOverlay} alt="" className="w-full h-full object-cover" />
       </div>
 
@@ -134,7 +133,6 @@ export default function Home() {
       <FilmSection onWatchTrailer={(id) => setActiveTrailerId(id)} />
       <TrailerSection onSelectTrailer={(id) => setActiveTrailerId(id)} />
       <ProductionGroups />
-      <TeamSection />
       <Footer />
     </main>
   );

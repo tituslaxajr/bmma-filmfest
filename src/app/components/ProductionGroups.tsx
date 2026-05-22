@@ -12,22 +12,45 @@ const groups = [
     film: "In Her Eyes",
     facebookUrl: "https://www.facebook.com/profile.php?id=61575445079151&sk=photos",
     description: "Capturing the raw intensity of psychological drama through a unique lens.",
-    image: imgLuminara
+    image: imgLuminara,
+    members: [
+      "David, Geil Wryzel",
+      "Cristi, Meghan",
+      "Santos, Mary Eleanore Adellei",
+      "Mejia, Mark Joshua",
+      "Galang, Sofia Ysabel",
+    ],
   },
   {
     name: "Shutterbox Production",
     film: "Mis-fortune",
     facebookUrl: "https://www.facebook.com/shutter.box.ph",
     description: "Exploring the intersections of fate and consequence in contemporary storytelling.",
-    image: imgShutterbox
+    image: imgShutterbox,
+    members: [
+      "Cayanan, Ma. Clowee",
+      "Cordero, Ariane Mico",
+      "Francisco, Francesca Reigne",
+      "Galang, Marc Welhem",
+      "Gaddi, Seth Marcus",
+      "Espoltero, Geraldine",
+    ],
   },
   {
     name: "Visionerie Creative Studio",
     film: "Kubli",
     facebookUrl: "https://www.facebook.com/profile.php?id=61587683045700",
     description: "An experimental powerhouse dedicated to uncovering hidden narratives.",
-    image: imgVisionerie
-  }
+    image: imgVisionerie,
+    members: [
+      "Delos Santos, Valerie",
+      "Valdez, Mowell Rosch",
+      "Dimaunahan, Jessica Marie",
+      "Pangan, Jelie",
+      "Canilao, Christian Manuel",
+      "Lingad, Princess Mae",
+    ],
+  },
 ];
 
 export function ProductionGroups() {
@@ -81,7 +104,18 @@ export function ProductionGroups() {
                 <p className="type-body text-gray-400">
                   {group.description}
                 </p>
-                
+
+                <div className="h-px bg-white/8" />
+
+                <ul className="space-y-2">
+                  {group.members.map((member) => (
+                    <li key={member} className="font-body text-xs text-gray-400 flex items-center gap-2">
+                      <span className="w-1 h-1 rounded-full bg-[#d9ae00]/50 flex-shrink-0" />
+                      {member}
+                    </li>
+                  ))}
+                </ul>
+
                 <a
                   href={group.facebookUrl}
                   target="_blank"

@@ -1,10 +1,33 @@
+import { useRef } from "react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import imgMainBackground from "../../assets/8k hero cover.png";
 import { motion } from "motion/react";
 
 export function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const spotlightRef = useRef<HTMLDivElement>(null);
+
+  function handleMouseMove(e: React.MouseEvent<HTMLElement>) {
+    const rect = sectionRef.current?.getBoundingClientRect();
+    if (!rect || !spotlightRef.current) return;
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    spotlightRef.current.style.background = `radial-gradient(ellipse 28% 36% at ${x}% ${y}%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.78) 100%)`;
+  }
+
+  function handleMouseLeave() {
+    if (!spotlightRef.current) return;
+    spotlightRef.current.style.background =
+      "radial-gradient(circle at center, rgba(0,0,0,0.04), rgba(0,0,0,0.62) 74%)";
+  }
+
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black text-white px-6 md:px-12 lg:px-24 py-20">
+    <section
+      ref={sectionRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black text-white px-6 md:px-12 lg:px-24 py-20"
+    >
       {/* Background with cinematic treatment */}
       <div className="absolute inset-0 z-0">
         <ImageWithFallback
@@ -12,7 +35,12 @@ export function Hero() {
           alt="BMMA Film Fest Background"
           className="w-full h-full object-cover opacity-84"
         />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.04),rgba(0,0,0,0.54)_74%)]"></div>
+        {/* Dynamic cursor spotlight overlay */}
+        <div
+          ref={spotlightRef}
+          className="absolute inset-0 transition-none"
+          style={{ background: "radial-gradient(circle at center, rgba(0,0,0,0.04), rgba(0,0,0,0.62) 74%)" }}
+        />
         <div className="absolute inset-0 bg-linear-to-b from-black/24 via-black/8 to-black/68"></div>
       </div>
 

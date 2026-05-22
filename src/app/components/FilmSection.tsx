@@ -1,5 +1,6 @@
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { motion } from "motion/react";
+import { TiltCard } from "./TiltCard";
 import imgInHerEyes from "../../assets/in-her-eyes-poster-optimized.jpg";
 import imgMisfortune from "../../assets/misfortune-poster-optimized.jpg";
 import imgKubli from "../../assets/kubli-poster-optimized.jpg";
@@ -49,7 +50,7 @@ export function FilmSection({ onWatchTrailer }: { onWatchTrailer: (id: string) =
       <div className="absolute right-[-12%] top-24 h-96 w-96 rounded-full bg-red-800/12 blur-3xl"></div>
       <div className="absolute left-[-12%] bottom-40 h-80 w-80 rounded-full bg-[#d9ae00]/8 blur-3xl"></div>
       <div className="container relative z-10 mx-auto">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -69,16 +70,35 @@ export function FilmSection({ onWatchTrailer }: { onWatchTrailer: (id: string) =
               className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-center`}
             >
               {/* Film Poster */}
-              <div className="w-full lg:w-1/3 flex-shrink-0">
-                <div className="relative group overflow-hidden rounded-lg shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/10">
-                  <ImageWithFallback 
-                    src={film.poster} 
+              <TiltCard className="w-full lg:w-1/3 flex-shrink-0" intensity={3}>
+                <div className="relative group overflow-hidden rounded-lg shadow-[0_0_40px_rgba(0,0,0,0.6)] border border-white/10">
+                  <ImageWithFallback
+                    src={film.poster}
                     alt={`${film.title} official poster`}
                     className="w-full h-auto aspect-[2/3] object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-60"></div>
+                  {/* Paper texture */}
+                  <div
+                    className="absolute inset-0 pointer-events-none rounded-lg"
+                    style={{
+                      backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23p)'/%3E%3C/svg%3E")`,
+                      mixBlendMode: "overlay",
+                      opacity: 0.22,
+                    }}
+                  />
+                  {/* Aged warm tint */}
+                  <div
+                    className="absolute inset-0 pointer-events-none rounded-lg"
+                    style={{
+                      background: "rgba(160, 120, 60, 0.07)",
+                      mixBlendMode: "multiply",
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-60" />
+                  {/* Gold sheen on hover */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(ellipse_at_top_right,rgba(217,174,0,0.12),transparent_60%)]" />
                 </div>
-              </div>
+              </TiltCard>
 
               {/* Film Details */}
               <div className="flex-1 space-y-8">

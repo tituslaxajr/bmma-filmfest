@@ -1,0 +1,136 @@
+import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { motion } from "motion/react";
+import imgInHerEyes from "figma:asset/5766eaf56b79667880a8586bfe6ff7a8f739f885.png";
+import imgMisfortune from "../../../MAIN POSTER MisFortune.png";
+import imgKubli from "figma:asset/5668d9559d8d6d80a01b3f591bca3dc754826657.png";
+import imgLuminara from "figma:asset/c589f4921221a6b99e242c5cace2710d002953cd.png";
+import imgShutterBox from "figma:asset/f434c0ecc56937158ac2e788621b43b7b3397cdf.png";
+import imgVisionerie from "figma:asset/cebddcdbacb68fd94ac779035ea6376c0fc6e0c1.png";
+
+const films = [
+  {
+    id: "in-her-eyes",
+    title: "IN HER EYES",
+    director: "Geil David",
+    description: "A melancholy young lady reminisces about her past as she paints someone she holds dear to her heart, who became the light at the end of the tunnel she calls her life.",
+    genre: "Psychological, Romance",
+    time: "11:00AM - 5:30PM",
+    venue: "DRAWING ROOM, 3RD FLOOR",
+    poster: imgInHerEyes,
+    logo: imgLuminara,
+  },
+  {
+    id: "mis-fortune",
+    title: "MIS-FORTUNE",
+    director: "Clowee Cayanan",
+    description: "What begins as an unsettling warning from a fortune teller soon turns into a psychological nightmare that forces a young woman to question fate, truth, and her own sanity.",
+    genre: "Psychological, Mystery",
+    time: "11:00AM - 5:00PM",
+    venue: "CL3, 2ND FLOOR",
+    poster: imgMisfortune,
+    logo: imgShutterBox,
+  },
+  {
+    id: "kubli",
+    title: "KUBLI",
+    director: "Valerie Delos Santos",
+    description: "When a rural girl is forced to abandon her education for her family, the suffocating weight of obedience begins to fracture her mind, revealing a darkness that has always lived beneath her silence.",
+    genre: "Psychological, Horror",
+    time: "11:00AM - 4:00PM",
+    venue: "ROOM 302, 3RD FLOOR",
+    poster: imgKubli,
+    logo: imgVisionerie,
+  }
+];
+
+export function FilmSection({ onWatchTrailer }: { onWatchTrailer: (id: string) => void }) {
+  return (
+    <section id="films" className="py-24 bg-black text-white px-6 md:px-12 lg:px-24">
+      <div className="container mx-auto">
+        <motion.h2 
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="text-[#d9ae00] font-['Inter'] font-bold text-4xl md:text-6xl uppercase mb-16 border-l-4 border-[#d9ae00] pl-6"
+        >
+          The Showcase
+        </motion.h2>
+
+        <div className="space-y-32">
+          {films.map((film, index) => (
+            <motion.div 
+              key={film.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
+              className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-center`}
+            >
+              {/* Film Poster */}
+              <div className="w-full lg:w-1/3 flex-shrink-0">
+                <div className="relative group overflow-hidden rounded-lg shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/10">
+                  <ImageWithFallback 
+                    src={film.poster} 
+                    alt={film.title}
+                    className="w-full h-auto aspect-[2/3] object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-60"></div>
+                </div>
+              </div>
+
+              {/* Film Details */}
+              <div className="flex-1 space-y-8">
+                <div className="flex justify-between items-start gap-4">
+                  <div>
+                    <h3 className="text-[#d9ae00] font-['Inter'] font-bold text-4xl md:text-6xl tracking-tight mb-2 uppercase">
+                      {film.title}
+                    </h3>
+                    <p className="font-['DM_Sans'] text-xl md:text-2xl text-white/90">
+                      Directed by <span className="font-bold">{film.director}</span>
+                    </p>
+                  </div>
+                  {film.logo && (
+                    <div className="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                      <ImageWithFallback src={film.logo} alt="Studio Logo" className="w-full h-full object-contain" />
+                    </div>
+                  )}
+                </div>
+
+                <div className="w-full h-px bg-[#d9ae00]/30"></div>
+
+                <p className="font-['DM_Sans'] text-lg md:text-2xl leading-relaxed text-gray-300 max-w-2xl">
+                  {film.description}
+                </p>
+
+                <div className="flex flex-wrap gap-4 items-center">
+                  <div className="border-2 border-[#d9ae00] text-[#d9ae00] px-6 py-2 rounded-full font-bold uppercase text-sm md:text-base tracking-wider">
+                    {film.time}
+                  </div>
+                  <div className="border-2 border-[#d9ae00] text-[#d9ae00] px-6 py-2 rounded-full font-bold uppercase text-sm md:text-base tracking-wider">
+                    {film.venue}
+                  </div>
+                </div>
+
+                <p className="text-gray-400 font-['DM_Sans'] text-sm md:text-base uppercase tracking-widest">
+                  Genre: <span className="text-white">{film.genre}</span>
+                </p>
+
+                <div className="pt-4 flex flex-wrap gap-4">
+                  <div className="bg-[#d9ae00] text-black font-bold py-4 px-10 rounded-full uppercase tracking-widest text-sm shadow-lg shadow-[#d9ae00]/20">
+                    Get Tickets at the Room
+                  </div>
+                  <button 
+                    onClick={() => onWatchTrailer(film.id)}
+                    className="border-2 border-white/20 hover:border-[#d9ae00] hover:text-[#d9ae00] text-white font-bold py-4 px-10 rounded-full uppercase tracking-widest text-sm transition-all duration-300 cursor-pointer"
+                  >
+                    Watch Trailer
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

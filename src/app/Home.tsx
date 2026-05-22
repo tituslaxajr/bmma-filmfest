@@ -1,0 +1,125 @@
+import { Hero } from "./components/Hero";
+import { FilmSection } from "./components/FilmSection";
+import { TrailerSection } from "./components/TrailerSection";
+import { TrailerPopup } from "./components/TrailerPopup";
+import { ProductionGroups } from "./components/ProductionGroups";
+import { TeamSection, Footer } from "./components/TeamSection";
+import { motion, useScroll, useSpring } from "motion/react";
+import { ImageWithFallback } from "./components/figma/ImageWithFallback";
+import { Toaster } from "sonner";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import imgOverlay from "figma:asset/ab89b3d7cf25656d8f2829d8ff55c577d1cdec2c.png";
+
+export default function Home() {
+  const [activeTrailerId, setActiveTrailerId] = useState<string | null>(null);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  const navItems = [
+    {
+      label: "Home",
+      action: () => window.scrollTo({ top: 0, behavior: "smooth" }),
+    },
+    {
+      label: "Films",
+      action: () => document.getElementById("films")?.scrollIntoView({ behavior: "smooth" }),
+    },
+    {
+      label: "Trailers",
+      action: () => document.getElementById("trailers")?.scrollIntoView({ behavior: "smooth" }),
+    },
+    {
+      label: "Filmmakers",
+      action: () => document.getElementById("productions")?.scrollIntoView({ behavior: "smooth" }),
+    },
+    {
+      label: "Credits",
+      action: () => document.querySelector("footer")?.scrollIntoView({ behavior: "smooth" }),
+    },
+  ];
+
+  const handleNavClick = (action: () => void) => {
+    setMobileNavOpen(false);
+    action();
+  };
+
+  return (
+    <main className="bg-black min-h-screen selection:bg-[#d9ae00] selection:text-black overflow-x-hidden relative">
+      <Toaster position="bottom-right" />
+      <TrailerPopup 
+        trailerId={activeTrailerId} 
+        onClose={() => setActiveTrailerId(null)} 
+      />
+      {/* Texture Overlay */}
+      <div className="fixed inset-0 z-50 pointer-events-none opacity-20 mix-blend-overlay">
+        <ImageWithFallback src={imgOverlay} alt="" className="w-full h-full object-cover" />
+      </div>
+
+      {/* Progress Bar */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-[#d9ae00] origin-left z-50"
+        style={{ scaleX }}
+      />
+
+      <header className="fixed top-0 left-0 right-0 z-40 px-4 pt-4 md:px-8 lg:px-12">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/10 bg-black/65 px-5 py-4 text-white shadow-[0_18px_50px_rgba(0,0,0,0.35)] backdrop-blur-xl">
+          <button
+            onClick={() => handleNavClick(() => window.scrollTo({ top: 0, behavior: "smooth" }))}
+            className="font-['Inter'] text-lg font-bold tracking-[0.18em] text-white uppercase cursor-pointer"
+          >
+            BMMA<span className="text-[#d9ae00]">FF</span>
+          </button>
+
+          <div className="hidden items-center gap-6 md:flex">
+            {navItems.map((item) => (
+              <button
+                key={item.label}
+                onClick={() => handleNavClick(item.action)}
+                className="font-['Inter'] text-xs font-bold uppercase tracking-[0.28em] text-white/70 transition-colors hover:text-[#d9ae00] cursor-pointer"
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+
+          <button
+            onClick={() => setMobileNavOpen((open) => !open)}
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white transition-colors hover:border-[#d9ae00] hover:text-[#d9ae00] md:hidden"
+            aria-label={mobileNavOpen ? "Close navigation menu" : "Open navigation menu"}
+          >
+            {mobileNavOpen ? <X size={18} /> : <Menu size={18} />}
+          </button>
+        </nav>
+
+        {mobileNavOpen && (
+          <div className="mx-auto mt-3 max-w-7xl rounded-3xl border border-white/10 bg-black/90 p-3 shadow-[0_18px_50px_rgba(0,0,0,0.45)] backdrop-blur-xl md:hidden">
+            <div className="grid gap-2">
+              {navItems.map((item) => (
+                <button
+                  key={item.label}
+                  onClick={() => handleNavClick(item.action)}
+                  className="rounded-2xl border border-white/8 bg-white/4 px-4 py-3 text-left font-['Inter'] text-sm font-bold uppercase tracking-[0.2em] text-white/80 transition-colors hover:border-[#d9ae00]/40 hover:text-[#d9ae00]"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+      </header>
+
+      <Hero />
+      <FilmSection onWatchTrailer={(id) => setActiveTrailerId(id)} />
+      <TrailerSection onSelectTrailer={(id) => setActiveTrailerId(id)} />
+      <ProductionGroups />
+      <TeamSection />
+      <Footer />
+    </main>
+  );
+}

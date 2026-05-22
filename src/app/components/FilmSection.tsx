@@ -2,7 +2,7 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { motion } from "motion/react";
 import imgInHerEyes from "../../assets/in-her-eyes-poster-optimized.jpg";
 import imgMisfortune from "../../assets/misfortune-poster-optimized.jpg";
-import imgKubli from "figma:asset/5668d9559d8d6d80a01b3f591bca3dc754826657.png";
+import imgKubli from "../../assets/kubli-poster-optimized.jpg";
 import imgLuminara from "figma:asset/c589f4921221a6b99e242c5cace2710d002953cd.png";
 import imgShutterBox from "figma:asset/f434c0ecc56937158ac2e788621b43b7b3397cdf.png";
 import imgVisionerie from "figma:asset/cebddcdbacb68fd94ac779035ea6376c0fc6e0c1.png";

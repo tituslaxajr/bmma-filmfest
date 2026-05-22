@@ -27,8 +27,8 @@ export const trailers = [
   {
     id: "kubli",
     title: "Kubli",
-    openUrl: "https://drive.google.com/file/d/1kRL-v4ILtWTUKmMIlfbhEVRHLmi4_2S-/view?usp=sharing",
-    videoUrl: "https://drive.google.com/file/d/1kRL-v4ILtWTUKmMIlfbhEVRHLmi4_2S-/preview",
+    openUrl: "https://drive.google.com/file/d/1A0IqEydQ5hKm3fzW6p7PRl9dtcHcdo3p/view?usp=sharing",
+    videoUrl: "https://drive.google.com/file/d/1A0IqEydQ5hKm3fzW6p7PRl9dtcHcdo3p/preview",
     thumbnail: imgKubliStill,
   }
 ];

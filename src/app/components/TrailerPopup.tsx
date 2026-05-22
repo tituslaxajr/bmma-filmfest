@@ -63,14 +63,14 @@ export function TrailerPopup({ trailerId, onClose }: TrailerPopupProps) {
               />
             </div>
             <div className="flex items-center justify-between gap-4 border-t border-white/10 bg-black px-5 py-4">
-              <span className="font-['Inter'] text-sm font-bold uppercase tracking-widest text-[#d9ae00]">
+              <span className="type-meta text-[#d9ae00]">
                 {trailer.title} Trailer
               </span>
               <a
                 href={trailer.openUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-[#d9ae00]/40 px-4 py-2 font-['Inter'] text-xs font-bold uppercase tracking-widest text-[#d9ae00] transition-colors hover:border-[#d9ae00] hover:bg-[#d9ae00] hover:text-black"
+                className="type-button inline-flex items-center gap-2 rounded-full border border-[#d9ae00]/40 px-4 py-2 text-xs text-[#d9ae00] transition-colors hover:border-[#d9ae00] hover:bg-[#d9ae00] hover:text-black"
               >
                 Open in Drive
                 <ExternalLink size={14} />

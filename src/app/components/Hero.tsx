@@ -22,7 +22,7 @@ export function Hero() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-7 font-['Inter'] text-sm font-normal uppercase tracking-[0.26em] text-white/75 md:mb-8 md:text-lg md:tracking-[0.45em]"
+          className="type-eyebrow mb-7 text-white/75 md:mb-8 md:text-base md:tracking-[0.42em]"
         >
           BMMA 3A Presents
         </motion.p>
@@ -35,7 +35,7 @@ export function Hero() {
           className="relative mb-9 md:mb-10"
         >
           <div className="absolute left-1/2 top-1/2 h-28 w-[115%] -translate-x-1/2 -translate-y-1/2 bg-[linear-gradient(90deg,transparent,rgba(220,38,38,0.22),rgba(217,174,0,0.08),transparent)] blur-2xl"></div>
-          <h1 className="relative flex flex-col items-center font-['Inter'] text-[4rem] leading-[0.88] font-bold uppercase tracking-[-0.045em] md:text-[6.9rem] lg:text-[9.1rem] xl:text-[10.4rem]">
+          <h1 className="font-display relative flex flex-col items-center text-[4rem] leading-[0.88] font-bold uppercase tracking-[-0.045em] md:text-[6.9rem] lg:text-[9.1rem] xl:text-[10.4rem]">
               <span className="relative inline-block mb-2 text-[#d9ae00] md:mb-4">
                 <span className="absolute inset-0 translate-x-[0.04em] translate-y-[0.04em] blur-[7px] text-[#d9ae00]/70">
                   BMMA
@@ -83,13 +83,13 @@ export function Hero() {
         >
           <div className="flex flex-col items-center justify-center gap-6 md:flex-row md:gap-12">
             <div className="text-center md:text-right">
-              <p className="font-['Inter'] text-3xl font-bold uppercase mb-1 md:text-5xl">26 May 2026</p>
-              <p className="font-['Inter'] text-2xl font-bold text-[#d9ae00] uppercase md:text-4xl">
+              <p className="font-display mb-1 text-3xl font-bold uppercase tracking-[-0.02em] md:text-5xl">26 May 2026</p>
+              <p className="font-display text-2xl font-bold uppercase tracking-[-0.02em] text-[#d9ae00] md:text-4xl">
                 STI College San Fernando
               </p>
             </div>
             <div className="hidden md:block h-24 w-px bg-[#d9ae00]"></div>
-          <p className="max-w-md font-['DM_Sans'] text-lg leading-relaxed text-gray-300 md:text-left md:text-2xl">
+          <p className="type-body-lg max-w-md text-gray-300 md:text-left">
             Featuring three original short films showcasing creativity, storytelling, and passion for filmmaking.
           </p>
           </div>
@@ -104,7 +104,7 @@ export function Hero() {
         >
           <button 
              onClick={() => document.getElementById('films')?.scrollIntoView({ behavior: 'smooth' })}
-             className="bg-[#d9ae00] text-black px-8 py-4 rounded-full font-bold text-lg uppercase tracking-wider hover:bg-white transition-all cursor-pointer shadow-lg shadow-[#d9ae00]/20"
+             className="type-button cursor-pointer rounded-full bg-[#d9ae00] px-8 py-4 text-black shadow-lg shadow-[#d9ae00]/20 transition-all hover:bg-white"
           >
             Explore the films
           </button>

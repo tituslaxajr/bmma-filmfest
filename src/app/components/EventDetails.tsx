@@ -53,10 +53,10 @@ export function EventDetails() {
                 <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#d9ae00] text-black">
                   <Icon size={20} />
                 </div>
-                <p className="font-['Inter'] text-xs font-bold uppercase tracking-[0.3em] text-white/45">
+                <p className="type-meta text-white/45 md:text-xs">
                   {detail.label}
                 </p>
-                <p className="mt-2 font-['Inter'] text-xl font-bold uppercase leading-tight text-white md:text-2xl">
+                <p className="type-card-title mt-2 uppercase text-white">
                   {detail.value}
                 </p>
               </div>

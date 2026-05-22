@@ -49,10 +49,10 @@ export function TeamSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-['Inter'] font-bold uppercase mb-4 tracking-widest text-[#d9ae00]">
+          <h2 className="type-section-title mb-4 text-[#d9ae00]">
             The Creative Minds
           </h2>
-          <p className="text-gray-400 font-['DM_Sans'] text-xl">BMMA 3A Cohort</p>
+          <p className="type-body-lg text-gray-400">BMMA 3A Cohort</p>
         </motion.div>
 
         <div className="flex flex-wrap justify-center gap-x-8 gap-y-6 max-w-5xl mx-auto">
@@ -63,7 +63,7 @@ export function TeamSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
-              className="text-lg md:text-xl font-['DM_Sans'] text-gray-300 hover:text-[#d9ae00] transition-colors cursor-default"
+              className="font-body cursor-default text-lg text-gray-300 transition-colors hover:text-[#d9ae00] md:text-xl"
             >
               {student} {index < students.length - 1 && <span className="ml-6 text-zinc-800">/</span>}
             </motion.div>
@@ -81,7 +81,7 @@ export function Footer() {
       <div className="container relative z-10 mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-12">
           <div className="max-w-2xl text-center md:text-left space-y-6">
-            <p className="text-gray-500 font-['DM_Sans'] text-sm md:text-base leading-relaxed">
+            <p className="type-body text-gray-500">
               Disclaimer: Any ticket sales, donations, or contributions for the BMMA Film Festival will be used solely to help cover the students' film production expenses. This event is not intended for profit or personal earnings.
             </p>
             <div className="flex flex-wrap justify-center gap-3 md:justify-start">
@@ -91,7 +91,7 @@ export function Footer() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 font-['Inter'] text-xs font-bold uppercase tracking-widest text-white/60 transition-colors hover:border-[#d9ae00]/60 hover:text-[#d9ae00]"
+                  className="type-button inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-xs text-white/60 transition-colors hover:border-[#d9ae00]/60 hover:text-[#d9ae00]"
                 >
                   <Facebook size={14} />
                   {link.name}
@@ -105,7 +105,7 @@ export function Footer() {
              <div className="w-32 md:w-40">
                 <ImageWithFallback src={imgStiLogo} alt="STI College San Fernando" className="w-full h-auto" />
              </div>
-             <p className="text-white/50 text-xs uppercase tracking-widest">
+             <p className="type-meta text-xs text-white/50">
                (c) 2026 BMMA 3A. All Rights Reserved.
              </p>
           </div>

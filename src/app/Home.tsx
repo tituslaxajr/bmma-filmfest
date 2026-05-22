@@ -81,7 +81,7 @@ export default function Home() {
         <nav className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/10 bg-black/65 px-5 py-4 text-white shadow-[0_18px_50px_rgba(0,0,0,0.35)] backdrop-blur-xl">
           <button
             onClick={() => handleNavClick(() => window.scrollTo({ top: 0, behavior: "smooth" }))}
-            className="font-['Inter'] text-lg font-bold tracking-[0.18em] text-white uppercase cursor-pointer"
+            className="font-display cursor-pointer text-lg font-bold uppercase tracking-[0.18em] text-white"
           >
             BMMA<span className="text-[#d9ae00]">FF</span>
           </button>
@@ -91,7 +91,7 @@ export default function Home() {
               <button
                 key={item.label}
                 onClick={() => handleNavClick(item.action)}
-                className="font-['Inter'] text-xs font-bold uppercase tracking-[0.28em] text-white/70 transition-colors hover:text-[#d9ae00] cursor-pointer"
+                className="type-meta cursor-pointer text-xs text-white/70 transition-colors hover:text-[#d9ae00]"
               >
                 {item.label}
               </button>
@@ -114,7 +114,7 @@ export default function Home() {
                 <button
                   key={item.label}
                   onClick={() => handleNavClick(item.action)}
-                  className="rounded-2xl border border-white/8 bg-white/4 px-4 py-3 text-left font-['Inter'] text-sm font-bold uppercase tracking-[0.2em] text-white/80 transition-colors hover:border-[#d9ae00]/40 hover:text-[#d9ae00]"
+                  className="type-meta rounded-2xl border border-white/8 bg-white/4 px-4 py-3 text-left text-white/80 transition-colors hover:border-[#d9ae00]/40 hover:text-[#d9ae00]"
                 >
                   {item.label}
                 </button>

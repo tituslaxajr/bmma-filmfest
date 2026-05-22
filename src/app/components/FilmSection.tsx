@@ -53,7 +53,7 @@ export function FilmSection({ onWatchTrailer }: { onWatchTrailer: (id: string) =
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="text-[#d9ae00] font-['Inter'] font-bold text-4xl md:text-6xl uppercase mb-16 border-l-4 border-[#d9ae00] pl-6"
+          className="type-section-title mb-16 border-l-4 border-[#d9ae00] pl-6 text-[#d9ae00]"
         >
           The Showcase
         </motion.h2>
@@ -84,10 +84,10 @@ export function FilmSection({ onWatchTrailer }: { onWatchTrailer: (id: string) =
               <div className="flex-1 space-y-8">
                 <div className="flex justify-between items-start gap-4">
                   <div>
-                    <h3 className="text-[#d9ae00] font-['Inter'] font-bold text-4xl md:text-6xl tracking-tight mb-2 uppercase">
+                    <h3 className="type-film-title mb-2 text-[#d9ae00]">
                       {film.title}
                     </h3>
-                    <p className="font-['DM_Sans'] text-xl md:text-2xl text-white/90">
+                    <p className="font-body text-xl text-white/90 md:text-2xl">
                       Directed by <span className="font-bold">{film.director}</span>
                     </p>
                   </div>
@@ -100,30 +100,30 @@ export function FilmSection({ onWatchTrailer }: { onWatchTrailer: (id: string) =
 
                 <div className="w-full h-px bg-[#d9ae00]/30"></div>
 
-                <p className="font-['DM_Sans'] text-lg md:text-2xl leading-relaxed text-gray-300 max-w-2xl">
+                <p className="type-body-lg max-w-2xl text-gray-300">
                   {film.description}
                 </p>
 
                 <div className="flex flex-wrap gap-4 items-center">
-                  <div className="border-2 border-[#d9ae00] text-[#d9ae00] px-6 py-2 rounded-full font-bold uppercase text-sm md:text-base tracking-wider">
+                  <div className="type-meta rounded-full border-2 border-[#d9ae00] px-6 py-2 text-[#d9ae00]">
                     {film.time}
                   </div>
-                  <div className="border-2 border-[#d9ae00] text-[#d9ae00] px-6 py-2 rounded-full font-bold uppercase text-sm md:text-base tracking-wider">
+                  <div className="type-meta rounded-full border-2 border-[#d9ae00] px-6 py-2 text-[#d9ae00]">
                     {film.venue}
                   </div>
                 </div>
 
-                <p className="text-gray-400 font-['DM_Sans'] text-sm md:text-base uppercase tracking-widest">
+                <p className="type-meta text-gray-400">
                   Genre: <span className="text-white">{film.genre}</span>
                 </p>
 
                 <div className="pt-4 flex flex-wrap gap-4">
-                  <div className="bg-[#d9ae00] text-black font-bold py-4 px-10 rounded-full uppercase tracking-widest text-sm shadow-lg shadow-[#d9ae00]/20">
+                  <div className="type-button rounded-full bg-[#d9ae00] px-10 py-4 text-black shadow-lg shadow-[#d9ae00]/20">
                     Get Tickets at the Room
                   </div>
                   <button 
                     onClick={() => onWatchTrailer(film.id)}
-                    className="border-2 border-white/20 hover:border-[#d9ae00] hover:text-[#d9ae00] text-white font-bold py-4 px-10 rounded-full uppercase tracking-widest text-sm transition-all duration-300 cursor-pointer"
+                    className="type-button cursor-pointer rounded-full border-2 border-white/20 px-10 py-4 text-white transition-all duration-300 hover:border-[#d9ae00] hover:text-[#d9ae00]"
                   >
                     Watch Trailer
                   </button>

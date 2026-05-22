@@ -11,7 +11,7 @@ export function TrailerSection({ onSelectTrailer }: { onSelectTrailer: (id: stri
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="text-[#d9ae00] font-['Inter'] font-bold text-4xl md:text-6xl uppercase mb-16 border-l-4 border-[#d9ae00] pl-6"
+          className="type-section-title mb-16 border-l-4 border-[#d9ae00] pl-6 text-[#d9ae00]"
         >
           Official Trailers
         </motion.h2>
@@ -41,7 +41,7 @@ export function TrailerSection({ onSelectTrailer }: { onSelectTrailer: (id: stri
                   </div>
                 </div>
               </div>
-              <h3 className="mt-4 text-xl font-bold uppercase tracking-wider text-white/90 font-['Inter'] group-hover:text-[#d9ae00] transition-colors">
+              <h3 className="type-card-title mt-4 uppercase tracking-[0.12em] text-white/90 transition-colors group-hover:text-[#d9ae00]">
                 {trailer.title}
               </h3>
             </motion.div>
